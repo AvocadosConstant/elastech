@@ -43,9 +43,10 @@ def gen_model(bone_dict):
         bpy.ops.transform.rotate(value=rotangles[1], axis=(0, 1, 0))
         bpy.ops.transform.rotate(value=rotangles[2], axis=(0, 0, 1))
         bone.select = False
-    bpy.ops.wm.collada_export(filepath='tmp/file.dae',
+    bpy.ops.wm.collada_export(filepath='models/gen/gen.dae',
                               selected=False, check_existing=False, apply_modifiers=True,
                               active_uv_only=True, include_uv_textures=True, open_sim=True,
                               triangulate=True, use_object_instantiation=True)
                              
 gen_model(get_dict())
+quit()
