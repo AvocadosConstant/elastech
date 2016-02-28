@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-
-
-    <title>Test von Web GL</title>
+    <title>Elastech</title>
     <meta charset="utf-8">
 </head>
 
@@ -46,7 +44,7 @@
 
             var loader = new THREE.ColladaLoader();
             loader.options.convertUpAxis = true;
-            loader.load('models/basicStick.dae', function(collada) {
+            loader.load('models/gen/example.dae', function(collada) {
                 var dae = collada.scene;
                 var skin = collada.skins[0];
                 dae.position.set(0, 0, 0); //x,z,y- if you think in blender dimensions ;)
