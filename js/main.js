@@ -2,6 +2,11 @@ var scene, camera, renderer;
 init();
 animate();
 
+var SPEED = 0.01;
+var dae;
+var leftRotate = true;
+var count = 0;
+
 function init() {
     scene = new THREE.Scene();
     var WIDTH = window.innerWidth,
@@ -14,7 +19,7 @@ function init() {
     renderer.setClearColor(0xffffff, 0);
     document.body.appendChild(renderer.domElement);
     camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 10000);
-    camera.position.set(50, 150, 100);
+    camera.position.set(200, 150, 100);
     scene.add(camera);
     window.addEventListener('resize', function() {
         var WIDTH = window.innerWidth,
@@ -27,17 +32,43 @@ function init() {
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
     loader.load('models/gen/example.dae', function(collada) {
-        var dae = collada.scene;
+        dae = collada.scene;
         var skin = collada.skins[0];
         dae.position.set(0, 0, 0); //x,z,y- if you think in blender dimensions ;)
-        dae.scale.set(1.5, 1.5, 1.5);
+        dae.scale.set(10, 10, 10);
+        dae.rotation.y += 4.25;
         scene.add(dae);
     });
     controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    // Set rotation change interval
+    setInterval(function(){ 
+        if (leftRotate) {
+            if ((count % 4 == 0) || (count % 4 == 2)) {
+                leftRotate = false;
+            }
+        } else {
+            if ((count % 4 == 1) || (count % 4 == 3)) {
+                leftRotate = true;
+            }
+        }
+        count++;
+    }, 3000);
 }
 
 function animate() {
     requestAnimationFrame(animate);
+    rotatePose();
     renderer.render(scene, camera);
     controls.update();
+}
+
+function rotatePose() {
+    if (dae != undefined) {
+        if (leftRotate) {
+            dae.rotation.y -= SPEED * 2;
+        } else {
+            dae.rotation.y += SPEED * 2;
+        }
+    }
 }
