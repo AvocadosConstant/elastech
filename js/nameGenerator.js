@@ -13,8 +13,14 @@ var nouns = ["Toe", "Frog", "Tiger", "Angle", "Bow", "Cat", "Camel", "Crane", "P
              "Scorpion", "River", "Potato", "Carrot", "Body", "Mouse", "Chicken", "Pinocchio", 
              "Cinderella", "Beast", "Fox", "Crayfish", "Shrimp", "Finger"];
 
+
+             
 function generatePose() {
-   var pose = adjectives[Math.floor(Math.random() * adjectives.length)] + " " +
+    location = location
+}
+
+function makeModel() {
+    var pose = adjectives[Math.floor(Math.random() * adjectives.length)] + " " +
               nouns[Math.floor(Math.random() * nouns.length)] + " Pose"; 
 
    // Occasionally include adverb
@@ -24,9 +30,6 @@ function generatePose() {
 
    // Set text
    document.getElementById("pose-text").innerHTML = pose;
-
-   // Run file
-   window.open('file:///S:Test/Test.bat');
 }
 
-window.onload = generatePose;
+window.onload = makeModel;

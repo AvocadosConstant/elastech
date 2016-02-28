@@ -31,7 +31,7 @@ function init() {
 */
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
-    loader.load('models/gen/example.dae', function(collada) {
+    loader.load('models/gen/gen.dae', function(collada) {
         dae = collada.scene;
         var skin = collada.skins[0];
         dae.position.set(0, 0, 0); //x,z,y- if you think in blender dimensions ;)
