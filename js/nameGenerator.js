@@ -22,6 +22,6 @@ function generatePoseName() {
       pose = adverbs[Math.floor(Math.random() * adverbs.length)] + " " + pose;
    }
 
-   // Change to update web app with pose name 
-   alert(pose);
+   // Set text
+   document.getElementById("pose-text").innerHTML = pose;
 }

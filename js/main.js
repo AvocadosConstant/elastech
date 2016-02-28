@@ -41,6 +41,11 @@ function init() {
     });
     controls = new THREE.OrbitControls(camera, renderer.domElement);
 
+    // Temporarily disable controls
+    controls.noZoom = true;
+    controls.noRotate = true;
+    controls.noPan = true;
+
     // Set rotation change interval
     setInterval(function(){ 
         if (leftRotate) {
