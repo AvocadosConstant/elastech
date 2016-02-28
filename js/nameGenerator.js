@@ -25,3 +25,5 @@ function generatePoseName() {
    // Set text
    document.getElementById("pose-text").innerHTML = pose;
 }
+
+window.onload = generatePoseName;

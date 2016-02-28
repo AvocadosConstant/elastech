@@ -1,4 +1,30 @@
 span {
 	font-family: 'Titillium Web', sans-serif;
 	color: white;
+	font-size: 1.5em;
+}
+
+span.caption {
+	font-size: 0.7em;
+}
+
+#pose-text {
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 2em;
+	text-align: left;
+	padding-right: 10px;
+}
+
+.btn-large {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 1.2em;
+}
+
+.options {
+	margin-top: 150px;
+	text-align: center;
+}
+
+.middle {
+	visibility: hidden;
 }
